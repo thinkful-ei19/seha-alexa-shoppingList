@@ -18,9 +18,23 @@ $(function(){
 
 
 
-      console.log(item);
+      //console.log(item)
     });
 
+    $('.shopping-item-toggle').click(function(event) {
+        const shopItem = $(event.currentTarget).closest('li').find('.shopping-item');
+        shopItem.toggleClass('shopping-item__checked');
+        // //event.currentTarget
+        // $(event.currentTarget);
+        // //find parent 'li'
+        // $(event.currentTarget).closest('li');
+        // //find child '.shopping-item'
+        
+    });
+
+    $('.shopping-item-delete').click(function(event) {
+        
+    });
 
 });
 
