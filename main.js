@@ -14,14 +14,12 @@ $(function(){
                     </button>
                 </div>
             </li>`);
-
-
-
-
-      //console.log(item)
+        addListeners();     
     });
+});
 
-    $('.shopping-item-toggle').click(function(event) {
+function addListeners() {
+    $('.shopping-item-toggle').click(function (event) {
         const shopItem = $(event.currentTarget).closest('li').find('.shopping-item');
         shopItem.toggleClass('shopping-item__checked');
         // //event.currentTarget
@@ -29,18 +27,14 @@ $(function(){
         // //find parent 'li'
         // $(event.currentTarget).closest('li');
         // //find child '.shopping-item'
-        
+
     });
 
-    $('.shopping-item-delete').click(function(event) {
-        
+    $('.shopping-item-delete').click(function (event) {
+        const shopItem = $(event.currentTarget).closest('li');
+        shopItem.remove();
+
     });
+}
 
-});
-
-
-
-
-
-console.log('hello');
-
+addListeners();
