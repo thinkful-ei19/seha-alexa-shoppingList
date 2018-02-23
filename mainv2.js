@@ -1,9 +1,9 @@
-$(function(){
-    $('#js-shopping-list-form').submit(function(event) {
+$(function () {
+    $('#js-shopping-list-form').submit(function (event) {
         event.preventDefault();
         const item = $('.js-shopping-list-entry').val();
         $('.shopping-list').append(
-          ` <li>
+            ` <li>
                 <span class="shopping-item">${item}</span>
                 <div class="shopping-item-controls">
                     <button class="shopping-item-toggle">
@@ -14,27 +14,27 @@ $(function(){
                     </button>
                 </div>
             </li>`);
-        addListeners();     
+        addEventListener();
     });
 });
-
-function addListeners() {
+function addEventListener() {
+    $('.shopping-item-toggle').unbind();
     $('.shopping-item-toggle').click(function (event) {
-        const shopItem = $(event.currentTarget).closest('li').find('.shopping-item');
-        shopItem.toggleClass('shopping-item__checked');
-        // //event.currentTarget
-        // $(event.currentTarget);
-        // //find parent 'li'
-        // $(event.currentTarget).closest('li');
-        // //find child '.shopping-item'
-
+        toggle(event.currentTarget);
     });
-
+    $('.shopping-item-delete').unbind();
     $('.shopping-item-delete').click(function (event) {
-        const shopItem = $(event.currentTarget).closest('li');
-        shopItem.remove();
-
+        remove(event.currentTarget);
     });
 }
 
-addListeners();
+function toggle (item) {
+    const shopItem = $(item).closest('li').find('.shopping-item');
+    shopItem.toggleClass('shopping-item__checked');
+}
+function remove(item) {
+    const shopItem = $(item).closest('li');
+    shopItem.remove();
+}
+
+addEventListener();
