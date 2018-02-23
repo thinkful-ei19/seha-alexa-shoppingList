@@ -21,7 +21,7 @@ $(function(){
       //console.log(item)
     });
 
-    $('.shopping-item-toggle').click(function(event) {
+    $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
         const shopItem = $(event.currentTarget).closest('li').find('.shopping-item');
         shopItem.toggleClass('shopping-item__checked');
         // //event.currentTarget
@@ -32,15 +32,15 @@ $(function(){
         
     });
 
-    $('.shopping-item-delete').click(function(event) {
-        
+    $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
+        const listItem = $(this).parent().parent();
+        listItem.remove();
+        //console.log(listItem);
+        //console.log(this);
+        //$('li').remove();
+        //console.log('hello');
+        // const deleteItem = $(event.currentTarget).
+        // deleteItem.remove('li');
     });
 
 });
-
-
-
-
-
-console.log('hello');
-
